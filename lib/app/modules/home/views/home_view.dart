@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/routes/app_pages.dart';
+import 'package:task_management_app/app/utils/widget/Header.dart';
 import 'package:task_management_app/app/utils/widget/SideBar.dart';
 
 import '../controllers/home_controller.dart';
@@ -15,11 +16,25 @@ class HomeView extends GetView<HomeController> {
       backgroundColor: Colors.blue[100],
       body: Row(
         children: [
+          Expanded(flex: 2, child: SideBar()),
           Expanded(
-            flex: 2,
-            child: SideBar (),
+            flex: 15,
+            child: Column(
+              children: [
+                Header(),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(50),
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                    color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          Expanded(flex: 15, child: Container(color: Colors.white)),
         ],
       ),
     );
